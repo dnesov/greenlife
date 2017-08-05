@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="playername" sid="871655185315901" static="0" type="text"></variable>
+        <variable constant="0" name="speed_exceed" sid="391556010814238" static="0" type="number">0</variable>
+        <variable constant="0" name="hours" sid="921097169726048" static="0" type="number">2</variable>
+        <variable constant="0" name="limit" sid="152958945531242" static="0" type="number">130</variable>
+        <variable constant="0" name="speed" sid="595285071619561" static="0" type="number">0</variable>
+        <event-block sid="956543989615672">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="389298979483427" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="250375283458084" type="System">
+                    <param id="0" name="Variable">speed_exceed</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="795826736615247" type="System">
+                    <param id="0" name="Variable">speed</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="722733952131178">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="440743490463094" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="346748402967572" type="Text">
+                    <param id="0" name="Text">speed&amp;  &quot;km/hr&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="577636462000694">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="510357609142184" type="System">
+                    <param id="0" name="Interval (seconds)">0.5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="829725580084514" type="System">
+                    <param id="0" name="Variable">speed</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="735522430501890" type="System">
+                    <param id="0" name="Variable">speed_exceed</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="807291093071446" type="System">
+                    <param id="0" name="Variable">speed</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="197809731003069">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="882791394223746" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="188966406552278" type="Text2">
+                    <param id="0" name="Text">&quot;Speed limit:&quot;&amp;limit</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="596159357602189">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="512865994228045" type="System">
+                    <param id="0" name="First value">limit</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">speed</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="996873134635270" type="System">
+                    <param id="0" name="Variable">speed_exceed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="787321676634322" type="System">
+                    <param id="0" name="Layout">mandatte</param>
+                </action>
+                <action id="0" name="Set text" sid="505978596258512" type="desc">
+                    <param id="0" name="Text">&quot;Civilian &quot; &amp;playername&amp; &quot;, has exceed the speed limit &quot;&amp; &quot;of &quot; &amp;limit&amp;&quot;km/h. he must be jailed for &quot;&amp;hours &amp; &quot; hours&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="619912267344404">
+            <conditions>
+                <condition id="1" name="On text changed" sid="575859091390937" type="TextBox" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="965836605323990" type="System">
+                    <param id="0" name="Variable">playername</param>
+                    <param id="1" name="Value">TextBox.Text</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
